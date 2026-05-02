@@ -4,77 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Au Fournil d'Aix | Boulangerie Artisanale Aix-en-Provence</title>
-<meta name="description" content="Boulangerie artisanale à Aix-en-Provence depuis 1987. Pain au levain, viennoiseries pur beurre, tartes maison. Rue Gaston de Saporta.">
+<meta name="description" content="Boulangerie artisanale a Aix-en-Provence depuis 1987. Pain au levain, viennoiseries pur beurre, tartes maison. Rue Gaston de Saporta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
-:root{--terre:#B54A2E;--terre-dark:#8B3A22;--blanc:#F7F2EC;--noir:#1A1512;--sable:#E8DDD0;}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Source Serif 4',serif;background:var(--blanc);color:var(--noir);line-height:1.65;font-size:17px}
-img{max-width:100%;display:block;height:auto}
+  /* === RESET === */
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  html{scroll-behavior:smooth}
 
-/* Grain overlay */
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  /* === VARIABLES === */
+  :root{
+    --terre:#B54A2E;
+    --terre-dark:#8B3A22;
+    --blanc:#F7F2EC;
+    --noir:#1A1512;
+    --sable:#E8DDD0;
+    --font-display:'Anton',sans-serif;
+    --font-body:'Source Serif 4',serif;
+  }
 
-/* Navigation */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,242,236,.92);backdrop-filter:blur(12px);border-bottom:2px solid var(--noir);padding:0 4vw;display:flex;justify-content:space-between;align-items:center;height:68px}
-.nav-logo{font-family:'Anton',sans-serif;font-size:1.6rem;letter-spacing:-.02em;text-transform:uppercase;color:var(--terre)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-family:'Source Serif 4',serif;font-weight:600;color:var(--noir);text-decoration:none;font-size:.95rem;position:relative;padding:.25rem 0}
-.nav-links a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--terre);transition:width .3s ease}
-.nav-links a:hover::after{width:100%}
+  body{
+    font-family:var(--font-body);
+    background:var(--blanc);
+    color:var(--noir);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
 
-/* Hero — massive type */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:10vh 4vw 6vh;background:var(--noir);color:var(--blanc);position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(181,74,46,.15),transparent 60%)}
-.hero-tag{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:.85rem;color:var(--terre);margin-bottom:1.5rem}
-.hero h1{font-family:'Anton',sans-serif;font-size:clamp(3.5rem,9vw,8rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:2rem;max-width:900px}
-.hero h1 span{color:var(--terre)}
-.hero-desc{font-size:1.15rem;max-width:520px;opacity:.85;margin-bottom:3rem}
-.hero-cta{display:inline-flex;align-items:center;gap:.75rem;background:var(--terre);color:var(--blanc);padding:1rem 2.5rem;font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;text-decoration:none;border:2px solid var(--terre);transition:all .25s}
-.hero-cta:hover{background:transparent;color:var(--terre)}
+  /* === NAV === */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(247,242,236,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:2px solid var(--noir);
+    padding:0 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:64px;
+  }
+  .nav-logo{font-family:var(--font-display);font-size:1.4rem;letter-spacing:-.02em;text-transform:uppercase;color:var(--terre)}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{font-weight:600;font-size:.9rem;position:relative;padding:.25rem 0;color:var(--noir)}
+  .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--terre);transition:width .3s ease}
+  .nav-links a:hover::after{width:100%}
 
-/* Sections */
-.section{padding:7rem 4vw;max-width:1200px;margin:0 auto}
-.section-alt{background:var(--sable)}
-.section-title{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,5vw,4rem);text-transform:uppercase;letter-spacing:-.02em;margin-bottom:3rem;color:var(--terre-dark)}
+  /* === HERO === */
+  .hero{
+    min-height:100vh;
+    background:var(--noir);
+    color:var(--blanc);
+    display:flex;flex-direction:column;justify-content:center;
+    padding:10vh 5vw 8vh;
+    position:relative;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(181,74,46,.15),transparent 60%);pointer-events:none}
+  .hero-tag{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;color:var(--terre);margin-bottom:1rem;position:relative;z-index:2}
+  .hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,6rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:1.5rem;position:relative;z-index:2;max-width:800px}
+  .hero h1 span{color:var(--terre)}
+  .hero-desc{font-size:1.1rem;opacity:.8;max-width:480px;margin-bottom:2rem;position:relative;z-index:2}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:var(--terre);color:var(--blanc);
+    padding:1rem 2.5rem;
+    font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;
+    border:2px solid var(--terre);
+    transition:all .25s ease;cursor:pointer;
+    position:relative;z-index:2;width:fit-content;
+  }
+  .hero-cta:hover{background:transparent;color:var(--terre)}
 
-/* Histoire — editorial layout */
-.histoire{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.histoire-text{font-size:1.05rem}
-.histoire-text p{margin-bottom:1.25rem}
-.histoire-img{aspect-ratio:4/5;background:var(--terre);position:relative;overflow:hidden}
-.histoire-img::after{content:"PAIN";position:absolute;bottom:1.5rem;right:1.5rem;font-family:'Anton',sans-serif;font-size:4rem;color:rgba(255,255,255,.12);text-transform:uppercase}
+  /* === SECTIONS === */
+  .section{padding:5rem 5vw;max-width:1200px;margin:0 auto}
+  .section-alt{background:var(--sable)}
+  .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:2rem;color:var(--terre-dark)}
 
-/* Products — bento grid */
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.product{background:var(--blanc);border:2px solid var(--noir);padding:2rem;transition:transform .2s,box-shadow .2s}
-.product:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--noir)}
-.product-num{font-family:'Anton',sans-serif;font-size:2.5rem;color:var(--terre);line-height:1;margin-bottom:1rem}
-.product h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.3rem;margin-bottom:.75rem;letter-spacing:.02em}
-.product p{font-size:.95rem;opacity:.85}
-.product:nth-child(4){grid-column:span 2;background:var(--terre);color:var(--blanc)}
-.product:nth-child(4) .product-num{color:rgba(255,255,255,.3)}
+  /* === HISTOIRE === */
+  .histoire{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .histoire-text{font-size:1.05rem}
+  .histoire-text p{margin-bottom:1rem}
+  .histoire-img{aspect-ratio:4/5;background:var(--terre);border-radius:8px;overflow:hidden;position:relative}
+  .histoire-img img{width:100%;height:100%;object-fit:cover}
+  .histoire-img::after{content:'PAIN';position:absolute;bottom:1rem;right:1rem;font-family:var(--font-display);font-size:3.5rem;color:rgba(255,255,255,.1);text-transform:uppercase;pointer-events:none}
 
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.contact-info p{margin-bottom:1.5rem;font-size:1.05rem}
-.contact-info strong{display:block;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:.85rem;letter-spacing:.1em;color:var(--terre);margin-bottom:.25rem}
-.contact-map{aspect-ratio:16/10;background:var(--sable);border:2px solid var(--noir);display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--terre);font-size:1.2rem;letter-spacing:.1em}
+  /* === PRODUCTS === */
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .product{background:var(--blanc);border:2px solid var(--noir);padding:1.5rem;transition:transform .2s,box-shadow .2s}
+  .product:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--noir)}
+  .product-num{font-family:var(--font-display);font-size:2rem;color:var(--terre);line-height:1;margin-bottom:.75rem}
+  .product h3{font-family:var(--font-display);text-transform:uppercase;font-size:1.1rem;margin-bottom:.5rem;letter-spacing:.02em}
+  .product p{font-size:.9rem;opacity:.8;line-height:1.6}
+  .product-wide{grid-column:span 2;background:var(--terre);color:var(--blanc);border-color:var(--terre-dark)}
+  .product-wide .product-num{color:rgba(255,255,255,.25)}
+  .product-wide:hover{box-shadow:6px 6px 0 var(--terre-dark)}
 
-/* Footer */
-.footer{background:var(--noir);color:var(--blanc);padding:3rem 4vw;text-align:center}
-.footer p{font-size:.9rem;opacity:.6}
+  /* === CONTACT === */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+  .contact-info p{margin-bottom:1.25rem;font-size:1rem}
+  .contact-info strong{display:block;font-family:var(--font-display);text-transform:uppercase;font-size:.75rem;letter-spacing:.1em;color:var(--terre);margin-bottom:.25rem}
+  .contact-info a{color:var(--terre-dark);text-decoration:underline;text-underline-offset:2px}
+  .contact-info a:hover{color:var(--terre)}
+  .contact-map{aspect-ratio:4/3;border-radius:8px;overflow:hidden;border:2px solid var(--noir);background:var(--sable)}
+  .contact-map iframe{width:100%;height:100%;border:0}
 
-@media(max-width:768px){
-  .nav-links{gap:1rem}
-  .nav-links a{font-size:.85rem}
-  .histoire{grid-template-columns:1fr}
-  .products{grid-template-columns:1fr}
-  .product:nth-child(4){grid-column:span 1}
-  .contact-grid{grid-template-columns:1fr}
-}
+  /* === FOOTER === */
+  .footer{background:var(--noir);color:var(--blanc);padding:2rem 5vw;text-align:center;font-size:.85rem;opacity:.7}
+
+  /* === RESPONSIVE === */
+  @media(max-width:768px){
+    .nav-links{gap:1rem}
+    .nav-links a{font-size:.8rem}
+    .hero h1{font-size:2.5rem}
+    .histoire{grid-template-columns:1fr}
+    .products{grid-template-columns:1fr}
+    .product-wide{grid-column:span 1}
+    .contact-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
@@ -90,10 +139,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
 
 <header class="hero" id="accueil">
   <div class="hero-bg"></div>
-  <span class="hero-tag">Boulangerie Artisanale — Aix-en-Provence</span>
-  <h1>Le goût du <span>pain</span> authentique</h1>
-  <p class="hero-desc">Depuis 1987, nous pétrissons, façonnons et cuisons chaque jour nos pains et viennoiseries dans le respect des traditions provençales.</p>
-  <a href="#produits" class="hero-cta">Découvrir nos produits →</a>
+  <span class="hero-tag">Boulangerie Artisanale - Aix-en-Provence</span>
+  <h1>Le gout du <span>pain</span> authentique</h1>
+  <p class="hero-desc">Depuis 1987, nous petrissons, faconnons et cuisons chaque jour nos pains et viennoiseries dans le respect des traditions provencales.</p>
+  <a href="#produits" class="hero-cta">Decouvrir nos produits &rarr;</a>
 </header>
 
 <main>
@@ -101,36 +150,38 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
   <h2 class="section-title">Notre histoire</h2>
   <div class="histoire">
     <div class="histoire-text">
-      <p>Installés au cœur d'Aix-en-Provence, nous avons à cœur de préserver le savoir-faire de la boulangerie artisanale. Farines locales, levain maison, cuisson au feu de bois pour certaines spécialités.</p>
-      <p>Chaque produit raconte une histoire. Chaque matin, nos boulangers se lèvent avant l'aube pour vous offrir le meilleur du pain frais. La baguette tradition, le croissant pur beurre, la tarte Tropézienne du week-end.</p>
+      <p>Installés au coeur d'Aix-en-Provence, nous avons a coeur de preserver le savoir-faire de la boulangerie artisanale. Farines locales, levain maison, cuisson au feu de bois pour certaines specialites : chaque produit raconte une histoire.</p>
+      <p>Chaque matin, nos boulangers se levent avant l'aube pour vous offrir le meilleur du pain frais. La baguette tradition, le croissant pur beurre, la tarte Tropézienne du week-end.</p>
       <p><strong style="color:var(--terre)">Bienvenue au Fournil.</strong></p>
     </div>
-    <img src="boulangerie.jpg" alt="Intérieur chaleureux de la boulangerie avec pain frais" class="histoire-img" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="histoire-img">
+      <img src="boulangerie.jpg" alt="Interieur chaleureux de la boulangerie avec pain frais">
+    </div>
   </div>
 </section>
 
 <section class="section section-alt" id="produits">
-  <h2 class="section-title">Nos créations</h2>
+  <h2 class="section-title">Nos creations</h2>
   <div class="products">
     <article class="product">
       <div class="product-num">01</div>
       <h3>Baguette tradition</h3>
-      <p>La classique, croustillante et dorée. Farine T65 et levain naturel. Cuite sur pierre.</p>
+      <p>La classique, croustillante et doree. Farine T65 et levain naturel. Cuite sur pierre.</p>
     </article>
     <article class="product">
       <div class="product-num">02</div>
       <h3>Croissant pur beurre</h3>
-      <p>Pâturage AOP Charentes-Poitou, feuilletage maison. 27 tours de pâte.</p>
+      <p>Patuage AOP Charentes-Poitou, feuilletage maison. 27 tours de pate.</p>
     </article>
     <article class="product">
       <div class="product-num">03</div>
       <h3>Pain de campagne</h3>
       <p>Farine bio, cuisson lente. Parfait pour vos tartines du dimanche.</p>
     </article>
-    <article class="product">
+    <article class="product product-wide">
       <div class="product-num">04</div>
       <h3>Tarte Tropézienne</h3>
-      <p>La spécialité du week-end. Crème légère, sucre perlé, brioche moelleuse. Un délice provençal à partager en famille.</p>
+      <p>La specialite du week-end. Creme legere, sucre perle, brioche moelleuse. Un delice provencal a partager en famille.</p>
     </article>
   </div>
 </section>
@@ -140,16 +191,18 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
   <div class="contact-grid">
     <div class="contact-info">
       <p><strong>Adresse</strong>14 Rue Gaston de Saporta<br>13100 Aix-en-Provence</p>
-      <p><strong>Horaires</strong>Lun–Sam : 6h30 – 19h30<br>Dim : 7h00 – 13h00</p>
-      <p><strong>Contact</strong><a href="mailto:contact@aufournildaix.fr" style="color:var(--terre-dark)">contact@aufournildaix.fr</a><br><a href="tel:0442234567" style="color:var(--terre-dark)">04 42 23 45 67</a></p>
+      <p><strong>Horaires</strong>Lun-Sam : 6h30 - 19h30<br>Dim : 7h00 - 13h00</p>
+      <p><strong>Contact</strong><a href="mailto:contact@aufournildaix.fr">contact@aufournildaix.fr</a><br><a href="tel:0442234567">04 42 23 45 67</a></p>
     </div>
-    <div class="contact-map" style="overflow:hidden;border-radius:8px;"><iframe src="https://maps.google.com/maps?q=14+Rue+Gaston+de+Saporta,+13100+Aix-en-Provence,+France&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Au Fournil d'Aix"></iframe></div>
+    <div class="contact-map">
+      <iframe src="https://maps.google.com/maps?q=14+Rue+Gaston+de+Saporta,+13100+Aix-en-Provence,+France&t=&z=16&ie=UTF8&iwloc=&output=embed" title="Carte Au Fournil d'Aix" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 </main>
 
 <footer class="footer">
-  <p>© Au Fournil d'Aix — Boulangerie artisanale depuis 1987 — Aix-en-Provence</p>
+  <p>&copy; Au Fournil d'Aix - Boulangerie artisanale depuis 1987 - Aix-en-Provence</p>
 </footer>
 
 <script type="application/ld+json">
@@ -161,8 +214,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
   "telephone":"+33442234567",
   "email":"contact@aufournildaix.fr",
   "openingHours":["Mo-Sa 06:30-19:30","Su 07:00-13:00"],
-  "priceRange":"€"
+  "priceRange":"&euro;"
 }
 </script>
+
 </body>
 </html>
